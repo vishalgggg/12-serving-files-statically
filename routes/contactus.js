@@ -3,19 +3,13 @@ const path = require('path');
 const express = require('express');
 
 const rootDir = require('../util/path');
-
+const controller = require('../controller/contactus');
 const router = express.Router();
 
 // /admin/add-product => GET
-router.get('/contactus', (req, res, next) => {
-  res.sendFile(path.join(rootDir, 'views', 'contactus.html'));
-});
+router.get('/contactus', controller.contactuscontroller );
 
 // /admin/add-product => POST
-router.post('/contactus', (req, res, next) => {
-  console.log(req.body);
-  res.sendFile(path.join(rootDir, 'views', 'sucess.html'));
-  // res.redirect('/success');
-});
+router.post('/contactus', controller.contactuscontrollerpost);
 
 module.exports = router;
